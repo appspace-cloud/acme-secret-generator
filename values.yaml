@@ -1,3 +1,7 @@
 name: "acme-secret-generator"
 namespace: "acme-secret-generator"
 
+# Set to true if you want the chart to create the namespace
+# Set to false if the namespace is created externally (e.g., by Terraform)
+createNamespace: false
+

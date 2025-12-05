@@ -4,7 +4,7 @@ ACME Secret Generator is a simple Helm chart that creates a Kubernetes namespace
 
 ## Overview
 
-This Helm chart creates a single Kubernetes namespace with the same name as the chart (`acme-secret-generator`).
+This Helm chart can create a single Kubernetes namespace with the same name as the chart (`acme-secret-generator`). By default, namespace creation is disabled to allow external tools (like Terraform) to manage the namespace.
 
 ## Prerequisites
 
@@ -21,9 +21,14 @@ helm repo add acme-secret-generator https://appspace-cloud.github.io/acme-secret
 helm repo update
 ```
 
-Install the chart:
+Install the chart (with namespace creation by Helm):
 ```bash
-helm install acme-secret-generator acme-secret-generator/acme-secret-generator --namespace acme-secret-generator --create-namespace
+helm install acme-secret-generator acme-secret-generator/acme-secret-generator --namespace acme-secret-generator --create-namespace --set createNamespace=true
+```
+
+Install the chart (namespace created externally, e.g., by Terraform):
+```bash
+helm install acme-secret-generator acme-secret-generator/acme-secret-generator --namespace acme-secret-generator
 ```
 
 ### From Local Chart
@@ -46,19 +51,43 @@ The following table lists the configurable parameters and their default values:
 |-----------|-------------|---------|
 | `name` | Name of the release | `acme-secret-generator` |
 | `namespace` | Kubernetes namespace name | `acme-secret-generator` |
+| `createNamespace` | Whether to create the namespace (set to `false` if namespace is managed externally) | `false` |
 
 ### Example: Custom Configuration
 
 ```yaml
 name: "acme-secret-generator"
 namespace: "my-custom-namespace"
+createNamespace: true  # Set to false if namespace is created by Terraform or other tools
+```
+
+### Using with Terraform
+
+When using Terraform to manage the namespace, set `createNamespace: false` (default):
+
+```hcl
+helm_release "acme-secret-generator" {
+  name       = "acme-secret-generator"
+  repository = "https://appspace-cloud.github.io/acme-secret-generator"
+  chart      = "acme-secret-generator"
+  version    = "0.1.1"
+  namespace  = "acme-secret-generator"
+  
+  # Namespace is created by Terraform, not by Helm
+  create_namespace = false
+  values = [
+    yamlencode({
+      createNamespace = false
+    })
+  ]
+}
 ```
 
 ## Resources Created
 
-This chart creates the following Kubernetes resources:
+This chart can create the following Kubernetes resources (depending on configuration):
 
-1. **Namespace**: Creates a namespace with the specified name (default: `acme-secret-generator`)
+1. **Namespace**: Creates a namespace with the specified name (default: `acme-secret-generator`) - **only if `createNamespace: true`**
 
 ## Uninstallation
 
