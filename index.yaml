@@ -1,0 +1,30 @@
+apiVersion: v1
+entries:
+  acme-secret-generator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-12-05T12:16:29.845575883Z"
+    description: ACME Secret Generator Helm chart for namespace creation
+    digest: 780c1167b183389f32dd29c416e2ab8bd7ce4ae925ee18c8ada670288b3cff98
+    home: https://appspace.com
+    maintainers:
+    - name: AppSpace Cloud Team
+    name: acme-secret-generator
+    type: application
+    urls:
+    - https://appspace-cloud.github.io/acme-secret-generator/acme-secret-generator-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-12-05T12:16:29.841917827Z"
+    description: ACME Secret Generator Helm chart for namespace creation
+    digest: db05c5c7651c7e221c828dbf18cf451b4ed20ba062c5f8dcba258642ba9fd0c9
+    home: https://appspace.com
+    maintainers:
+    - name: AppSpace Cloud Team
+    name: acme-secret-generator
+    type: application
+    urls:
+    - https://appspace-cloud.github.io/acme-secret-generator/acme-secret-generator-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-12-05T12:16:29.841205932Z"

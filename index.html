@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACME Secret Generator Helm Chart Repository</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .description h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .description li {
+            margin-bottom: 8px;
+        }
+        
+        .installation {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .installation h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        .code-block code {
+            color: #f8f8f2;
+        }
+        
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .info-box strong {
+            color: #1976D2;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 5px;
+        }
+        
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 ACME Secret Generator</h1>
+            <p>Helm Chart Repository</p>
+            <div style="margin-top: 15px;">
+                <span class="badge">Helm 3.0+</span>
+                <span class="badge">Kubernetes 1.19+</span>
+            </div>
+        </div>
+        
+        <div class="description">
+            <h2>About</h2>
+            <p>
+                ACME Secret Generator is a simple Helm chart that creates a Kubernetes namespace. 
+                This chart is designed to be minimal and focused solely on namespace creation.
+            </p>
+            <ul>
+                <li>Creates a Kubernetes namespace with the chart name</li>
+                <li>Simple and lightweight</li>
+                <li>Easy to install and manage</li>
+                <li>Perfect for namespace provisioning</li>
+            </ul>
+        </div>
+        
+        <div class="installation">
+            <h2>📦 Installation</h2>
+            <p style="margin-bottom: 10px;">Add the repository:</p>
+            <div class="code-block">
+                <code>helm repo add acme-secret-generator https://appspace-cloud.github.io/acme-secret-generator</code>
+            </div>
+            <p style="margin: 15px 0 10px 0;">Update repositories:</p>
+            <div class="code-block">
+                <code>helm repo update</code>
+            </div>
+            <p style="margin: 15px 0 10px 0;">Install the chart:</p>
+            <div class="code-block">
+                <code>helm install acme-secret-generator acme-secret-generator/acme-secret-generator --namespace acme-secret-generator --create-namespace</code>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <strong>📋 Repository URL:</strong><br>
+            <code style="color: #1976D2;">https://appspace-cloud.github.io/acme-secret-generator</code>
+        </div>
+        
+        <div class="info-box">
+            <strong>🔍 Search available charts:</strong><br>
+            <code style="color: #1976D2;">helm search repo acme-secret-generator</code>
+        </div>
+        
+        <div class="links">
+            <a href="https://github.com/appspace-cloud/acme-secret-generator" target="_blank">GitHub Repository</a>
+            <a href="index.yaml" target="_blank">Chart Index</a>
+        </div>
+        
+        <div class="footer">
+            <p>Maintained by AppSpace Cloud Team</p>
+            <p style="margin-top: 5px;">Copyright © AppSpace. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
