@@ -1,0 +1,11 @@
+---
+apiVersion: v2
+name: acme-secret-generator
+description: ACME Secret Generator Helm chart for namespace creation
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+home: https://appspace.com
+maintainers:
+  - name: AppSpace Cloud Team
+
